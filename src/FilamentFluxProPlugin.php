@@ -12,7 +12,9 @@ use Filament\Forms\Components\Slider;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TimePicker;
 use Filament\Panel;
+use Filament\Schemas\Components\Tabs;
 use Jeffersongoncalves\FilamentFlux\FilamentFluxPlugin;
+use Jeffersongoncalves\FilamentFluxPro\Components\FluxTabs;
 use Jeffersongoncalves\FilamentFluxPro\Forms\Components\FluxColorPicker;
 use Jeffersongoncalves\FilamentFluxPro\Forms\Components\FluxDatePicker;
 use Jeffersongoncalves\FilamentFluxPro\Forms\Components\FluxDateTimePicker;
@@ -42,6 +44,7 @@ class FilamentFluxProPlugin implements Plugin
         'fileUpload' => ['from' => FileUpload::class, 'to' => FluxFileUpload::class],
         'slider' => ['from' => Slider::class, 'to' => FluxSlider::class],
         'tagsInput' => ['from' => TagsInput::class, 'to' => FluxPillbox::class],
+        'tabs' => ['from' => Tabs::class, 'to' => FluxTabs::class],
     ];
 
     protected bool $commandPaletteEnabled = false;

@@ -5,7 +5,9 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TagsInput;
 use Filament\Panel;
+use Filament\Schemas\Components\Tabs;
 use Jeffersongoncalves\FilamentFlux\FilamentFluxPlugin;
+use Jeffersongoncalves\FilamentFluxPro\Components\FluxTabs;
 use Jeffersongoncalves\FilamentFluxPro\FilamentFluxProPlugin;
 use Jeffersongoncalves\FilamentFluxPro\Forms\Components\FluxDatePicker;
 use Jeffersongoncalves\FilamentFluxPro\Forms\Components\FluxEditor;
@@ -96,4 +98,5 @@ it('rebinds Filament classes to Flux Pro classes when registered', function () {
     expect(app(RichEditor::class, ['name' => 'b']))->toBeInstanceOf(FluxEditor::class);
     expect(app(FileUpload::class, ['name' => 'c']))->toBeInstanceOf(FluxFileUpload::class);
     expect(app(TagsInput::class, ['name' => 'd']))->toBeInstanceOf(FluxPillbox::class);
+    expect(app(Tabs::class, ['label' => 'e']))->toBeInstanceOf(FluxTabs::class);
 });

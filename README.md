@@ -120,9 +120,10 @@ If you forget the free plugin, registration throws a `RuntimeException` telling 
 | `fileUpload`     | `FileUpload`   | `FluxFileUpload`     |
 | `slider`         | `Slider`       | `FluxSlider`         |
 | `tagsInput`      | `TagsInput`    | `FluxPillbox`        |
+| `tabs`           | `Schemas\Components\Tabs` | `FluxTabs` |
 
 ```php
-// All eight bindings on:
+// All nine bindings on:
 ->plugin(FilamentFluxProPlugin::make()->useEverywhere())
 
 // Disable specific slugs:
