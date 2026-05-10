@@ -1,6 +1,10 @@
-# Filament Flux Pro
+<div class="filament-hidden">
 
-![Filament Flux Pro banner](art/banner.png)
+![Filament Flux Pro](https://raw.githubusercontent.com/jeffersongoncalves/filament-flux-pro/1.x/art/jeffersongoncalves-filament-flux-pro.png)
+
+</div>
+
+# Filament Flux Pro
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/filament-flux-pro.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-flux-pro)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-flux-pro/tests.yml?branch=1.x&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/filament-flux-pro/actions?query=workflow%3Atests+branch%3A1.x)
