@@ -1,0 +1,52 @@
+name: tests
+
+on:
+  push:
+    branches: [1.x]
+  pull_request:
+    branches: [1.x]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        php: ['8.3', '8.4']
+        laravel: ['12.*', '13.*']
+        stability: [prefer-stable]
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, intl, fileinfo
+          coverage: none
+
+      - name: Authenticate Flux Pro registry
+        env:
+          FLUX_PRO_USERNAME: ${{ secrets.FLUX_PRO_USERNAME }}
+          FLUX_PRO_PASSWORD: ${{ secrets.FLUX_PRO_PASSWORD }}
+        run: |
+          if [ -z "$FLUX_PRO_USERNAME" ] || [ -z "$FLUX_PRO_PASSWORD" ]; then
+            echo "::error::FLUX_PRO_USERNAME and FLUX_PRO_PASSWORD secrets are required to install livewire/flux-pro."
+            exit 1
+          fi
+          composer config --global --auth http-basic.composer.fluxui.dev "$FLUX_PRO_USERNAME" "$FLUX_PRO_PASSWORD"
+
+      - name: Install dependencies
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+      - name: Run tests
+        run: vendor/bin/pest

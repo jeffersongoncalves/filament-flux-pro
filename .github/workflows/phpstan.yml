@@ -1,0 +1,47 @@
+name: phpstan
+
+on:
+  push:
+    branches: [1.x]
+    paths:
+      - '**.php'
+      - 'phpstan.neon'
+      - '.github/workflows/phpstan.yml'
+  pull_request:
+    branches: [1.x]
+    paths:
+      - '**.php'
+      - 'phpstan.neon'
+
+jobs:
+  phpstan:
+    name: phpstan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, intl
+          coverage: none
+
+      - name: Authenticate Flux Pro registry
+        env:
+          FLUX_PRO_USERNAME: ${{ secrets.FLUX_PRO_USERNAME }}
+          FLUX_PRO_PASSWORD: ${{ secrets.FLUX_PRO_PASSWORD }}
+        run: |
+          if [ -z "$FLUX_PRO_USERNAME" ] || [ -z "$FLUX_PRO_PASSWORD" ]; then
+            echo "::error::FLUX_PRO_USERNAME and FLUX_PRO_PASSWORD secrets are required to install livewire/flux-pro."
+            exit 1
+          fi
+          composer config --global --auth http-basic.composer.fluxui.dev "$FLUX_PRO_USERNAME" "$FLUX_PRO_PASSWORD"
+
+      - name: Install composer dependencies
+        uses: ramsey/composer-install@v4
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --error-format=github --no-progress --memory-limit=2G
