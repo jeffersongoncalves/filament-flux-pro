@@ -16,6 +16,7 @@ use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Flux\FluxServiceProvider;
+use FluxPro\FluxProServiceProvider;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Jeffersongoncalves\FilamentFlux\FilamentFluxServiceProvider;
@@ -70,6 +71,7 @@ class TestCase extends Orchestra
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
             FluxServiceProvider::class,
+            FluxProServiceProvider::class,
             FilamentFluxServiceProvider::class,
             FilamentFluxProServiceProvider::class,
         ];
