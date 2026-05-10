@@ -1,8 +1,17 @@
 version: 2
 
+registries:
+  flux-pro:
+    type: composer-repository
+    url: https://composer.fluxui.dev
+    username: ${{ secrets.FLUX_PRO_USERNAME }}
+    password: ${{ secrets.FLUX_PRO_PASSWORD }}
+
 updates:
   - package-ecosystem: composer
     directory: '/'
+    registries:
+      - flux-pro
     schedule:
       interval: daily
     open-pull-requests-limit: 10
