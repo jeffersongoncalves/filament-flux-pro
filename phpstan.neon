@@ -8,3 +8,10 @@ parameters:
         - config
     excludePaths:
         - src/Commands/InstallCommand.php
+    ignoreErrors:
+        -
+            identifier: property.defaultValue
+            message: '#Property .+::\$view \(view-string\) does not accept default value of type string\.#'
+            paths:
+                - src/Components
+                - src/Widgets
