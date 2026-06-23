@@ -2,6 +2,10 @@
 
 All notable changes to `filament-flux-pro` will be documented in this file.
 
+## 1.1.0 - 2026-06-23
+
+Use the shared `ManagesFieldBindings` trait from filament-flux ^1.12 (removes duplicated container-binding logic). No behavior change.
+
 ## 1.0.0 - 2026-05-10
 
 Initial release. Filament v5 plugin wrapping Livewire Flux Pro 2.x.
