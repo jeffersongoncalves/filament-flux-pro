@@ -6,6 +6,8 @@
 
 # Filament Flux Pro
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jeffersongoncalves)
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/filament-flux-pro.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/filament-flux-pro)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-flux-pro/tests.yml?branch=1.x&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/filament-flux-pro/actions?query=workflow%3Atests+branch%3A1.x)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/filament-flux-pro/fix-php-code-style-issues.yml?branch=1.x&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/filament-flux-pro/actions?query=workflow%3A%22fix+php+code+style+issues%22+branch%3A1.x)
