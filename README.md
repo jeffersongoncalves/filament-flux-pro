@@ -544,6 +544,18 @@ class TicketChat extends FluxComposerPage
 - **Command palette hotkey doesn't fire** — the page must dispatch `open-command-palette` itself or listen with `protected $listeners = ['open-command-palette' => 'openCommandPalette'];`. The plugin only exposes the configuration; binding the keystroke is your responsibility.
 - **Editor saves raw HTML with `<script>` tags** — make sure `fluxSanitize()` is on (default) and that you're reading the dehydrated state from the form, not the raw Livewire property.
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Jefferson Gonçalves](https://github.com/jeffersongoncalves)
+
 ## License
 
 The wrapper code in this repository is MIT — see [`LICENSE.md`](LICENSE.md). It does **not** grant any rights to `livewire/flux-pro`; you need a separate commercial Flux license from <https://fluxui.dev> to install and run this plugin.
