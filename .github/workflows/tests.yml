@@ -30,6 +30,12 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, pdo_mysql, pdo_pgsql, bcmath, intl, gd, exif, iconv, fileinfo
           coverage: none
 
+      - name: Configure Composer credentials (composer.fluxui.dev)
+        env:
+          COMPOSER_AUTH_USER: ${{ secrets.FLUX_PRO_USERNAME }}
+          COMPOSER_AUTH_PASSWORD: ${{ secrets.FLUX_PRO_PASSWORD }}
+        run: composer config --global --auth http-basic.composer.fluxui.dev "$COMPOSER_AUTH_USER" "$COMPOSER_AUTH_PASSWORD"
+
       - name: Install dependencies (Laravel 13)
         run: |
           composer require "laravel/framework:^13.0" "orchestra/testbench:^11.0" "pestphp/pest:^4.0" "pestphp/pest-plugin-laravel:^4.0" --dev --no-interaction --no-update
