@@ -6,6 +6,13 @@
 
 version: 2
 
+registries:
+  flux-pro:
+    type: composer-repository
+    url: https://composer.fluxui.dev
+    username: ${{secrets.FLUX_PRO_USERNAME}}
+    password: ${{secrets.FLUX_PRO_PASSWORD}}
+
 updates:
 
   # ---------- 1.x ----------
@@ -36,6 +43,8 @@ updates:
       - dependency-name: jeffersongoncalves/filament-flux
         versions:
           - '>=2.0'
+    registries:
+      - flux-pro
     groups:
       composer-deps:
         patterns:
